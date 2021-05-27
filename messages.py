@@ -27,8 +27,6 @@ conn = sqlite3.connect(new_db_path)
 cur = conn.cursor()
 
 # get the names of the tables in the database
-# cur.execute(" select name from sqlite_master where type = 'table' ")
-# cur.execute("pragma table_info(chat")
 def call(s):
     cur.execute(s)
     options = set(cur.fetchall())
@@ -49,8 +47,8 @@ def print_call(d, contacts):
             k = contacts.get(k, k)
         print('{}: {}'.format(k, v))
 
-# Source: https://github.com/ronaldoussoren/pyobjc/blob/master/pyobjc-framework-Contacts/Examples/print-contacts.py
 def getContacts(d):
+    # Source: https://github.com/ronaldoussoren/pyobjc/blob/master/pyobjc-framework-Contacts/Examples/print-contacts.py
     if args.use_contacts is None:
         return {}
     try:
