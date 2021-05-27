@@ -7,9 +7,9 @@ from datetime import datetime
 import argparse
 import re
 
-parser = argparse.ArgumentParser(description='Parse your messages')
-parser.add_argument('--use_contacts', '-c', action='store_true', help='Import Contacts to link phone number names')
-parser.add_argument('--number', '-n', type=int, required=False, help='Number of phone numbers to list')
+parser = argparse.ArgumentParser(description='Parse your messages and list how many you have with each contact')
+parser.add_argument('--use_contacts', '-c', action='store_true', help='Import Contacts and link phone number names to list')
+parser.add_argument('--number', '-n', type=int, required=False, help='Number of phone numbers to include in list')
 args = parser.parse_args()
 args.use_contacts
 if args.number is None:
