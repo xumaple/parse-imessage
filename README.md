@@ -33,8 +33,8 @@ Halt O'Carrick: 10090
 
 Note to use this flag - you must have the `pyobjc` package installed:
 ```sh
-$ python3 messages.py
+$ python3 messages.py -c
 Error: Contacts API not installed. run 'pip3 install pyobjc'
 $ python3 -m pip pyobjc
-$ python3 messages.py
+$ python3 messages.py -c
 ```
