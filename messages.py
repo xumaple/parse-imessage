@@ -8,8 +8,12 @@ import argparse
 import re
 
 parser = argparse.ArgumentParser(description='Parse your messages')
-parser.add_argument('--use_contacts', '-c', action='store_true')
-useContacts = parser.parse_args().use_contacts
+parser.add_argument('--use_contacts', '-c', action='store_true', help='Import Contacts to link phone number names')
+parser.add_argument('--number', '-n', type=int, required=False, help='Number of phone numbers to list')
+args = parser.parse_args()
+args.use_contacts
+if args.number is None:
+    args.number = 10
     
 
 # make copy of database
@@ -38,16 +42,16 @@ def getPhoneNumber(s):
     return s
 
 def print_call(d, contacts):
-    for name in sorted(d.items(), key=lambda x: x[1])[-20:][::-1]:
+    for name in sorted(d.items(), key=lambda x: x[1])[-1*args.number:][::-1]:
         k, v = name
         k = getPhoneNumber(k)
-        if useContacts:
+        if args.use_contacts:
             k = contacts.get(k, k)
         print('{}: {}'.format(k, v))
 
 # Source: https://github.com/ronaldoussoren/pyobjc/blob/master/pyobjc-framework-Contacts/Examples/print-contacts.py
 def getContacts(d):
-    if useContacts is None:
+    if args.use_contacts is None:
         return {}
     import Contacts
 
