@@ -1,6 +1,6 @@
 # Parse your iMessages
 
-This is a Python 3 script used to parse and count the messages sent through iMessage, and stored in a MacBook's chat.db file. When run, it sorts and finds the conversations with the highest message counts, and prints the respective phone number along with converstaion message count for each.
+This is a Python 3 script used to parse and count the messages sent through iMessage, and stored in your MacBook's chat.db file. When run, it sorts and finds the conversations with the highest message counts, and prints the respective phone number along with converstaion message count for each.
 
 ## How to use:
 ```sh
@@ -31,7 +31,9 @@ Horace Altman: 15190
 Halt O'Carrick: 10090
 ```
 
-Note to use this flag: you must have the `pyobjc` package installed. Do this with the following command:
+Note to use this flag - you must have the `pyobjc` package installed:
 ```sh
-python3 -m pip install pyobjc
+$ python3 messages.py -c   
+Error: Contacts API not installed. run 'pip3 install pyobjc'
+$ python3 messages.py -c
 ```
