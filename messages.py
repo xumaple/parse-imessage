@@ -53,8 +53,11 @@ def print_call(d, contacts):
 def getContacts(d):
     if args.use_contacts is None:
         return {}
-    import Contacts
-
+    try:
+        import Contacts
+    except ModuleNotFoundError:
+        print('Error: Contacts API not installed. Try running \'pip3 install pyobjc\'.')
+        exit()
     def print_info(contact, stop):
         if contact.isKeyAvailable_(Contacts.CNContactGivenNameKey):
             for num in contact.phoneNumbers():
